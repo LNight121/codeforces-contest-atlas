@@ -1,0 +1,8 @@
+# editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp
+
+# nothing here is built, but keep the usual noise out
+node_modules/
+*.log

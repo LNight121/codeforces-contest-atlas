@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Contest Atlas</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="app.css">
+<body>
+<div class="wrap">
+  <header>
+    <div class="title">
+      <h1>Contest Atlas</h1>
+      <span class="proto">prototype · pure front end · data straight from codeforces.com/api</span>
+    </div>
+    <form id="bar" autocomplete="off">
+      <input id="cid" inputmode="numeric" placeholder="contest id, e.g. 2289" size="20">
+      <button type="submit" id="go">Load</button>
+      <button type="button" id="refresh" hidden>Refetch</button>
+      <button type="button" id="cachebtn" title="manage the local cache">Cache</button>
+    </form>
+  </header>
+  <div id="cache" class="hint" hidden></div>
+  <section id="cachebox" class="cachebox" hidden></section>
+
+  <section id="prog" class="prog" hidden>
+    <div class="track"><i id="fill"></i></div>
+    <div class="line">
+      <b id="pct">0%</b>
+      <span id="msg">Preparing…</span>
+      <span id="bytes" class="dim"></span>
+    </div>
+    <ol id="phases">
+      <li data-k="standings"><em></em>Standings</li>
+      <li data-k="subs"><em></em>Submissions</li>
+      <li data-k="rating"><em></em>Pre-contest ratings</li>
+      <li data-k="draw"><em></em>Draw</li>
+    </ol>
+  </section>
+
+  <section id="err" class="err" hidden></section>
+
+  <section id="view" hidden>
+    <nav class="views">
+      <button class="vw on" data-v="scatter">Scatter</button>
+      <button class="vw" data-v="stats">Statistics</button>
+    </nav>
+
+    <div id="paneScatter">
+      <div id="tabs" class="tabs"></div>
+      <div id="meta" class="meta"></div>
+      <canvas id="chart"></canvas>
+      <div id="notes" class="notes"></div>
+    </div>
+
+    <div id="paneStats" hidden></div>
+  </section>
+
+  <footer>
+    Data comes from the <a href="https://codeforces.com/apiHelp" target="_blank" rel="noreferrer">Codeforces API</a>,
+    fetched by your own browser; this page stores nothing on a server and relays nothing.
+    Requests are spaced 2 s apart. Results are cached locally, so a second visit needs no network.
+  </footer>
+</div>
+<div id="tip" class="tip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
